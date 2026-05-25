@@ -8,7 +8,7 @@
 
 ## דרישות מערכת
 
-- Node.js 18+ (מומלץ Node 20 ומעלה)
+- Node.js 20 / 22 / 24 (LTS מומלץ)
 - npm
 
 ## התקנה
@@ -17,11 +17,18 @@
 npm install
 ```
 
-החבילה `better-sqlite3` היא מודול native. אם ההתקנה נכשלת ייתכן שיהיה צורך בכלי build:
+החבילה `better-sqlite3` היא מודול native ומגיעה עם **קבצי binary מוכנים מראש** לכל
+שילובי OS+Node הנפוצים — כך שבמרבית המקרים `npm install` יסתיים מיידית, ללא הידור.
 
-- Linux: `sudo apt-get install -y build-essential python3`
-- macOS: `xcode-select --install`
-- Windows: התקנת [Visual Studio Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+אם ההתקנה נכשלת בכל זאת ומופיעה שגיאת `node-gyp`/`Visual Studio`:
+
+- **Windows**: ודא שאתה משתמש בגרסה `better-sqlite3@^12` (כלולה כבר ב-`package.json`)
+  שמכילה binaries ל-Node 22/24. אם אתה על גרסת Node ישנה מאוד או חדשה מאוד שעבורה אין
+  עדיין binary, השדרג ל-Node 22 LTS. כקרש הצלה ניתן להתקין
+  [Visual Studio Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+  עם הרכיב "Desktop development with C++" ולנסות שוב.
+- **Linux**: `sudo apt-get install -y build-essential python3`
+- **macOS**: `xcode-select --install`
 
 ## הפעלה במצב פיתוח
 
